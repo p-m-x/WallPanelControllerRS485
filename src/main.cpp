@@ -124,7 +124,7 @@ void readTemperaturesCallback()
 
   for (uint8_t i = 0; i < temperatureSensorsCount; i++)
   {
-    temperatureUnion.value = temperatureSensors.getTempCByIndex(0);
+    temperatureUnion.value = temperatureSensors.getTempCByIndex(i);
     ModbusRTUServer.inputRegisterWrite(MODBUS_TEMP_SENSORS_START_ADDRESS + (i * 2), temperatureUnion.highOrderByte);
     ModbusRTUServer.inputRegisterWrite(MODBUS_TEMP_SENSORS_START_ADDRESS + (i * 2 + 1), temperatureUnion.lowOrderByte);
   }
